@@ -1,11 +1,16 @@
-<form action="action_page.php">
-  <div class="container">
-  <p>Dear Baby,</p>
+ window.setInterval("reloadquote()", 60 * 1000);
+ const originalQuotes = ["hello", "kya hua", "gufufish", "wuwfywoifhw"];
+ let replayedQuotes = originalQuotes;
 
-<p>I am really sorry!</p>
+ function reloadquote() {
+   if (replayedQuotes.length) {
+     const nextQuote = replayedQuotes[0];
 
-<p>I love you so much.</p>
+     document.getElementById("p1").innerHTML = nextQuote;
 
-<p>I know I am not perfect. But I also know that I love you more than anyone ever will. And this love for you in my heart feels heavy when you are not around to receive it.</p>
-  
-</form>
+     replayedQuotes = replayedQuotes.slice(1);
+   } else {
+     replayedQuotes = originalQuotes;
+     reloadQuote();
+   }
+ }
